@@ -7,14 +7,15 @@ project_name= 'query-to-sql'
 list_of_files =[
   f"src/{project_name}/__init--.py",
   f"src/{project_name}/constant/__init__.py",
-  f"src/{project_name}/entity/__init_.py"
+  f"src/{project_name}/entity/__init_.py",
+  ".github/workflows/.gitkeep"
 ]
 
 for filepath in list_of_files:
   filepath = Path(filepath)
   filedir,filename = os.path.split(filepath)
   if filedir != "":
-    os.makedirs(filedir)
+    os.makedirs(filedir,exist_ok=True)
     logging.info("directry created")
 
   if (not os.path.exists(filepath) == True) or  (os.getsize(filepath)==0):
